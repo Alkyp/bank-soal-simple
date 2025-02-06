@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Siswa</title>
+    <link rel="stylesheet" href="/static/css/login-siswa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <form method="post">
+            <p class="main-title">Login</p>
+            <div class="inputUsername">
+                <p class="sub-title">Username</p>
+                <input  type="text" name="username" id="username" placeholder="Masukkan username...">
+            </div>
+            <div class="inputPassword">
+                <p class="sub-title">Password</p>
+                <input type="text" name="password" id="password" placeholder="Masukkan password...">
+            </div>
+            <p style="text-align: center;">Belum Punya Akun? <a href="{{url_for('register')}}" style="text-decoration: none;">Register</a></p>
+            <div class="buttonSubmit">
+                <button class="primary-btn" type="submit">Login</button>
+            </div>
+            </form>
+        </div>
+
+        <div class="gambar">
+            <img src="/static/images/buku.png" alt="" width="500px" height="500px">
+        </div>
+    </div>
+
+
+</body>
+</html>

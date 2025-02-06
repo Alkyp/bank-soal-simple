@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tambah Soal
+{% endblock %}
+
+{% block content %}
+    <form action="{{url_for('inputSoal')}}" method="post" class="border p-3 mb-5 bg-body">
+        <h5>Tambah Soal</h5>
+
+        <div class="mb-3">
+            <textarea class="form-control" name="soal" id="soal" rows="5" style="width: 100%; box-shadow: none !important;"></textarea>
+        </div>
+        <table style="width: 100%;">
+            {% for i in opsi %}
+            <tr>
+                <td style="width: 5%;"><input type="radio" name="benar" value="{{i}}"></td>
+                <td style="width: 80%"><input class="form-control" type="text" id="{{i}}" name="{{i}}" style="width: 100%; box-shadow: none !important;" required></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+    </form>
+{% endblock %}

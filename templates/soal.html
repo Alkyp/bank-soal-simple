@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Soal
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="/static/css/modal.css">
+{% endblock %}
+
+{% block content %}
+    <form action="{{url_for('inputSoal')}}">
+        <button type="submit" class="btn btn-primary">Tambah Soal</button>
+    </form>
+    {% for i in data %}
+    <div class="border p-3 mb-5">
+        <div class="mb-3">
+            <p>{{loop.index}}. {{i[0]}}</p>
+        </div>
+        <table style="width: 100%;">
+            {% for j in range(5) %}
+            <tr>
+                <td style="width: 5%;"><input type="radio" value="{{i}}" name="opsi" disabled></td>
+                <td style="width: 80%; height:40px;vertical-align: center">{{i[j+1]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <table>
+            <tr>
+                <td>
+                    <form action="{{url_for('editSoal')}}" method="post">
+                        <button type="submit" class="btn btn-success mt-3" name="edit" value="{{i[0]}}">Edit</button>
+                    </form>
+
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger data-toggle="modal" data-target="#exampleModal" onclick='Konfirmasi()'>
+                        hapus
+                      </button>
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <form action="{{url_for('hapusSoal')}}" method="post">
+                                <button type="submit" class="btn btn-danger mt-3" name="hapus" value="{{i[0]}}">Hapus</button>
+                            </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    
+
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% endfor %}
+
+      
+      <!-- Modal Delete -->
+      
+
+
+<script>
+// Get the modal
+const modal = document.getElementsByClassName("myModal")[1];
+console.log(modal[0])
+// Get the button that opens the modal
+const btn = document.getElementsByClassName("myBtn")[1];
+
+// Get the <span> element that closes the modal
+const but = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+but.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside the modal, close it
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+function Konfirmasi() {
+            // let Konfirmasi = confirm("Are you sure to execute this action?");
+        let Konfirmasi = true;
+        if (true) {
+            confirm("Yakin ingin menghapus ini")
+          alert("Data berhasil dihapus!")
+          preventDefault()
+        } else {
+             return false;
+        }
+      }
+</script>
+
+{% endblock %}

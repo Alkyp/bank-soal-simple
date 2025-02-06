@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Siswa</title>
+    <link rel="stylesheet" href="/static/css/register-siswa.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="content">
+            <form action="{{url_for('register')}}" method="post">
+                <p class="main-title">Register</p>
+
+                <div class="inputNisn">
+                    <p class="sub-title">NISN</p>
+                    <input type="text" name="nisn" placeholder="Masukkan nisn...">
+                </div>
+
+                <div class="inputUsername">
+                    <p class="sub-title">Username</p>
+                    <input  type="text" name="username" id="username" placeholder="Masukkan username...">
+                </div>
+                <div class="inputPassword">
+                    <p class="sub-title">Password</p>
+                    <input type="password" name="password" id="password" placeholder="Masukkan password...">
+                </div>
+
+                <p style="text-align: center;">Sudah Punya Akun? <a href="{{url_for('login')}}" style="text-decoration: none;">Login</a></p>
+                <div class="buttonSubmit">
+                    <button class="primary-btn" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="gambar">
+            <img src="/static/images/topi.png" alt="" width="500px" height="500px">
+        </div>
+    </div>
+
+</body>
+</html>
